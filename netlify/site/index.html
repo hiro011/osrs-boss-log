@@ -42,7 +42,7 @@
             <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.6"/>
             <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <input id="player-name" name="player" maxlength="12" autocomplete="off" placeholder="Enter an account name..." required>
+          <input id="player-name" name="player" maxlength="12" autocomplete="on" placeholder="Enter an account name..." required>
           <button type="submit" id="search-button"><span>Find account</span><span class="button-arrow" aria-hidden="true">↗</span></button>
         </form>
         <div class="search-hint">Uses the official OSRS hiscores <span>·</span> No sign-in required</div>
@@ -52,7 +52,10 @@
       <section class="results" id="results" aria-live="polite" hidden>
         <div class="account-bar">
           <div class="account-details">
-            <div class="account-avatar" aria-hidden="true">✦</div>
+            <div class="account-avatar" aria-hidden="true">
+              <img id="account-avatar-image" src="https://secure.runescape.com/m=avatar-rs/default_chat.png?" alt="">
+              <span id="account-avatar-fallback" hidden>✦</span>
+            </div>
             <div>
               <div class="account-label">ADVENTURER</div>
               <h2 id="account-name"></h2>

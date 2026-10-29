@@ -13,8 +13,15 @@ const sortOrder = document.querySelector("#sort-order");
 const visibleCount = document.querySelector("#visible-count");
 const emptyFilter = document.querySelector("#empty-filter");
 const iconWarning = document.querySelector("#icon-warning");
+const accountAvatarImage = document.querySelector("#account-avatar-image");
+const accountAvatarFallback = document.querySelector("#account-avatar-fallback");
 
 let currentBosses = [];
+
+accountAvatarImage.addEventListener("error", () => {
+  accountAvatarImage.hidden = true;
+  accountAvatarFallback.hidden = false;
+});
 
 function formatNumber(value) {
   return new Intl.NumberFormat().format(value);
