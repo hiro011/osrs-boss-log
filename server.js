@@ -97,6 +97,7 @@ async function handleHiscores(response, requestUrl) {
       .map((activity) => ({
         name: activity.name,
         kc: Math.max(0, activity.score),
+        rank: activity.rank,
       }));
     const collectionLogCount = Math.max(
       0,

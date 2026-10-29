@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10130f">
+    <meta name="description" content="Look up an Old School RuneScape account and explore its boss kill counts.">
+    <title>Boss Log — OSRS Hiscores</title>
+    <link rel="preconnect" href="https://oldschool.runescape.wiki">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Boss Log home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3 27 9.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="m16 8 6.5 4v8L16 24l-6.5-4v-8L16 8Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="m16 12 3 2v4l-3 2-3-2v-4l3-2Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-name">BOSS<span>LOG</span></span>
+      </a>
+      <div class="live-label"><span class="live-dot"></span> OSRS HISCORES</div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE ADVENTURER'S RECORD</div>
+        <h1>Your boss log,<br><em>at a glance.</em></h1>
+        <p class="intro-copy">Look up any Old School RuneScape account and see every boss KC, all in one place.</p>
+
+        <form class="search-form" id="search-form">
+          <label class="sr-only" for="player-name">RuneScape player name</label>
+          <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.6"/>
+            <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input id="player-name" name="player" maxlength="12" autocomplete="off" placeholder="Enter an account name..." required>
+          <button type="submit" id="search-button"><span>Find account</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        </form>
+        <div class="search-hint">Uses the official OSRS hiscores <span>·</span> No sign-in required</div>
+        <p class="message" id="message" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <section class="results" id="results" aria-live="polite" hidden>
+        <div class="account-bar">
+          <div class="account-details">
+            <div class="account-avatar" aria-hidden="true">✦</div>
+            <div>
+              <div class="account-label">ADVENTURER</div>
+              <h2 id="account-name"></h2>
+            </div>
+          </div>
+          <div class="account-stats">
+            <div class="stat"><strong id="boss-count">—</strong><span>BOSSES TRACKED</span></div>
+            <div class="stat"><strong id="collection-log-count">—</strong><span>COLLECTION LOG</span></div>
+            <div class="stat"><strong id="total-kc">—</strong><span>TOTAL KC</span></div>
+          </div>
+        </div>
+        <p class="collection-note">Collection Log shows the hiscores total only; individual item unlocks aren't available from public hiscores.</p>
+
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> THE HUNT</div>
+            <h2>Boss collection <span class="heading-count" id="visible-count"></span></h2>
+          </div>
+          <div class="collection-controls">
+            <label class="sr-only" for="boss-filter">Filter bosses</label>
+            <div class="filter-wrap">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.3" stroke="currentColor" stroke-width="1.6"/><path d="m15.5 15.5 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <input id="boss-filter" placeholder="Find a boss..." autocomplete="off">
+            </div>
+            <label class="sr-only" for="sort-order">Sort bosses</label>
+            <select id="sort-order">
+              <option value="name">A — Z</option>
+              <option value="kc">Most KC</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="icon-warning" id="icon-warning" hidden></p>
+        <div class="boss-grid" id="boss-grid"></div>
+        <p class="empty-filter" id="empty-filter" hidden>No bosses match that search.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Made for the grind.</span>
+      <span>Data from the official OSRS hiscores <span class="footer-divider">·</span> Portraits from the OSRS Wiki</span>
+    </footer>
+  </body>
+</html>

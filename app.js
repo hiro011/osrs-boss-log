@@ -70,7 +70,11 @@ function renderBosses() {
     kc.className = `boss-kc${boss.kc === 0 ? " zero" : ""}`;
     kc.textContent = `${formatNumber(boss.kc)} KC`;
 
-    card.append(portrait, name, kc);
+    const rank = document.createElement("div");
+    rank.className = "boss-rank";
+    rank.textContent = boss.rank > 0 ? `Rank #${formatNumber(boss.rank)}` : "Unranked";
+
+    card.append(portrait, name, kc, rank);
     bossGrid.append(card);
   }
 }
