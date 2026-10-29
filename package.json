@@ -1,0 +1,9 @@
+{
+  "name": "osrs-boss-log",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Look up an Old School RuneScape character's boss hiscores.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
